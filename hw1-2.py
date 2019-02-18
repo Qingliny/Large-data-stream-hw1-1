@@ -11,6 +11,9 @@ byteLines = byteLines.filter(lambda x: x[1] != "-")
 collectBytes= byteLines.reduceByKey(lambda x,y: int(x) + int(y))
 #sort the collectByte by value
 # use takeOrdered and set the function as descending orders by value
-res1 = collectBytes.takeOrdered(10, key=lambda x: -int(x[1]))
+print("Please input the top k =")
+k = input()
+res1 = collectBytes.takeOrdered(int(k), key=lambda x: -int(x[1]))
+
 
 print(res1)
